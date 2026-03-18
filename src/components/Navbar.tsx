@@ -55,7 +55,7 @@ export default function Navbar() {
           onClick={() => handleNav("hero")}
           className="absolute left-6 flex items-center gap-2 text-lg font-bold tracking-tight text-foreground hover:text-accent transition-colors cursor-pointer"
         >
-          <span className="hidden sm:inline">Atakan Arda Celik</span>
+          <span>Atakan Arda Celik</span>
         </button>
 
         {/* Desktop links – centered */}
