@@ -14,6 +14,7 @@ const navLinks: { label: string; id: SectionId }[] = [
   { label: "Skills", id: "skills" },
   { label: "Experience", id: "experience" },
   { label: "Projects", id: "projects" },
+  { label: "Research", id: "research" },
   { label: "Contact", id: "contact" },
 ];
 

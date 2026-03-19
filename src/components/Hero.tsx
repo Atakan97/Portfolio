@@ -2,7 +2,7 @@
 
 import { Mail, MapPin, Linkedin, Github, Download, Terminal, Database, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
+import PremiumTypewriter from "./PremiumTypewriter";
 
 export default function Hero() {
   return (
@@ -23,7 +23,7 @@ export default function Hero() {
       />
 
       {/* 2. GLOWING ORBS FOR PREMIUM DEPTH */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 transform-gpu will-change-transform">
         <div className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full bg-accent/10 blur-[120px]" />
         <div className="absolute bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-accent-secondary/10 blur-[120px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-accent/5 blur-[120px]" />
@@ -87,18 +87,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl md:text-3xl text-muted-foreground font-medium mb-8 h-10"
+          className="text-xl md:text-3xl text-muted-foreground font-medium mb-8 h-10 translate-x-2 md:translate-x-8"
         >
-          Engineering solutions in{' '}
+          Engineering solutions in{" "}
           <span className="text-accent font-semibold">
-            <Typewriter
+            <PremiumTypewriter
               words={['Full-Stack Development', 'API-Driven Systems', 'Modern Web Applications']}
-              loop={true}
-              cursor
-              cursorStyle='_'
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1500}
+              delay={1500}
+              typeSpeed={0.07}
+              deleteSpeed={0.04}
+              cursorChar='_'
             />
           </span>
         </motion.div>

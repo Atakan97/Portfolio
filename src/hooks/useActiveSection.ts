@@ -6,7 +6,7 @@ import { createContext, useContext, useState, useCallback } from "react";
 // Section type & context
 // ---------------------------------------------------------------------------
 
-export type SectionId = "hero" | "about" | "skills" | "experience" | "projects" | "contact";
+export type SectionId = "hero" | "about" | "skills" | "experience" | "research" | "projects" | "contact";
 
 interface SectionContextValue {
   /** Currently visible section */

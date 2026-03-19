@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
+import Research from "@/components/Research";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -37,6 +38,7 @@ const sectionComponents: Record<SectionId, React.ComponentType> = {
   about: About,
   skills: Skills,
   experience: Experience,
+  research: Research,
   projects: Projects,
   contact: Contact,
 };
