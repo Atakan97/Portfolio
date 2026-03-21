@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Code, BrainCircuit } from "lucide-react";
 import Image from "next/image";
 
 export default function About() {
@@ -53,53 +52,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Content */}
-          <div className="grid gap-8 md:grid-cols-3">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
-            >
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                <GraduationCap size={24} />
-              </div>
-              <h4 className="text-sm font-semibold text-foreground mb-2">Education</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                M.Sc. in Computer Science from the University of Passau and B.Sc. in Computer Engineering from Dokuz Eylul University.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
-            >
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                <Code size={24} />
-              </div>
-              <h4 className="text-sm font-semibold text-foreground mb-2">Full-Stack Development</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Foundation in Full-stack workflows, building applications with modern frameworks.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="rounded-2xl border border-border bg-card p-6 text-center hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
-            >
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                <BrainCircuit size={24} />
-              </div>
-              <h4 className="text-sm font-semibold text-foreground mb-2">Engineering Mindset</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-              I focus on writing clear, reliable code and solving problems in a practical way.
-              </p>
-            </motion.div>
-          </div>
         </motion.div>
       </div>
     </section>
