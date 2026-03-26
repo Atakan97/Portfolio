@@ -15,7 +15,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "PlaqueAnalyzer Studio",
+    title: "PlaqueAnalyzer",
     tech: ["Java", "Spring Boot", "JavaScript", "PostgreSQL", "Docker"],
     description: [
       "Built an interactive web application to teach database normalization with “plaque” redundancy visualization and guided decomposition up to BCNF.",

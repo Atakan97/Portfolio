@@ -107,7 +107,7 @@ export default function Hero() {
           className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
         >
           <EducationCard />
-          <FullStackCard />
+          <ProblemSolvingCard />
           <EngineeringCard />
         </motion.div>
 
@@ -274,10 +274,10 @@ const EducationCard = () => (
   />
 );
 
-const FullStackCard = () => (
+const ProblemSolvingCard = () => (
   <TiltFeatureCard 
-    title="Full-Stack"
-    description="Foundation in Full-stack workflows, building applications with modern frameworks."
+    title="Problem-Solving"
+    description="I am approaching challenges comprehensively in order to build scalable, and user-focused solutions."
     imageSrc="/images/hero_fullstack_bg.png"
     glowColor="rgba(16,185,129,0.5)"
     hoverBorder="border-emerald-500/40"
@@ -287,7 +287,7 @@ const FullStackCard = () => (
 const EngineeringCard = () => (
   <TiltFeatureCard 
     title="Engineering"
-    description="I focus on writing clear, reliable code and solving problems in a practical way."
+    description="I am passionate about producing readable, maintainable code and creating efficient systems."
     imageSrc="/images/hero_engineering_bg.png"
     glowColor="rgba(245,158,11,0.5)"
     hoverBorder="border-amber-500/40"
