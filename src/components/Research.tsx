@@ -33,8 +33,8 @@ const papers: Paper[] = [
 
 export default function Research() {
   return (
-    <section id="research" className="min-h-screen py-24 flex items-center">
-      <div className="mx-auto max-w-6xl px-6 w-full">
+    <section id="research" className="min-h-screen py-24 bg-section-alt relative overflow-hidden flex items-center">
+      <div className="mx-auto max-w-4xl px-6 w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,59 +54,58 @@ export default function Research() {
             </p>
           </div>
 
-          {/* Paper cards grid */}
-          <div className="grid gap-6 md:grid-cols-3">
+          {/* Paper list */}
+          <div className="space-y-8 md:space-y-10">
             {papers.map((paper, i) => (
               <motion.div
                 key={paper.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="flex flex-col rounded-2xl border border-white/5 bg-card/40 backdrop-blur-xl overflow-hidden p-6 relative group"
+                className="flex flex-col rounded-2xl border border-border bg-card p-6 md:p-8 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 overflow-hidden relative group"
               >
-                {/* Background glow effect for premium feel */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
+                {/* Hover internal gradient */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                {/* Icon & Title */}
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-xl bg-accent/10 shrink-0">
-                    <FileText className="text-accent" size={24} />
-                  </div>
-                  <h4 className="flex-1 text-lg font-bold text-foreground leading-tight">
+                {/* Title and Download Button Row */}
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5 relative z-10">
+                  <h4 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight group-hover:text-accent transition-colors duration-300 max-w-2xl">
                     {paper.title}
                   </h4>
-                </div>
-
-                {/* Summary */}
-                <p className="text-sm text-muted-foreground mb-6 flex-grow">
-                  {paper.summary}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {paper.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Button */}
-                <div className="mt-auto border-t border-border/30 pt-5">
+                  
                   <a
                     href={paper.pdfFile}
                     download
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-accent text-accent-foreground font-semibold transition-all duration-300 shadow-sm opacity-90 hover:opacity-100"
+                    className="shrink-0 inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl bg-accent/10 text-accent font-semibold hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-sm"
                   >
                     <Download size={18} />
                     Download PDF
                   </a>
+                </div>
+
+                {/* Summary */}
+                <p className="text-foreground/80 mb-6 font-medium text-sm md:text-base border-l-2 border-accent/40 pl-4 py-1 relative z-10">
+                  {paper.summary}
+                </p>
+
+                {/* Tags */}
+                <div className="pt-6 border-t border-border/50 relative z-10">
+                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                    Topics
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {paper.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1.5 text-xs font-medium bg-background text-foreground border border-border rounded-lg hover:border-accent hover:text-accent transition-colors duration-200 cursor-default"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}

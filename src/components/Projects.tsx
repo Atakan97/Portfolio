@@ -15,14 +15,26 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "RAG Documentation Assistant",
+    tech: ["Next.js", "React", "FastAPI", "Supabase pgvector", "LangChain", "Groq LLM"],
+    description: [
+      "Built a full-stack Retrieval-Augmented Generation (RAG) AI assistant with delivering accurate, and cited answers from FastAPI documentation.",
+      "Engineered a vector search pipeline using Supabase pgvector and BAAI embeddings. Deployed a Next.js frontend on Vercel and a FastAPI backend on Hugging Face Spaces.",
+    ],
+    image: "/projects/rag_assistant.png",
+    link: "https://rag-doc-assistant-one.vercel.app/",
+    github: "https://github.com/Atakan97/rag-doc-assistant",
+  },
+  {
     title: "PlaqueAnalyzer",
     tech: ["Java", "Spring Boot", "JavaScript", "PostgreSQL", "Docker"],
     description: [
-      "Built an interactive web application to teach database normalization with “plaque” redundancy visualization and guided decomposition up to BCNF.",
+      "Built an interactive web application to teach database normalization with “plaque” redundancy visualization and guided decomposition.",
       "Implemented real-time progress updates with Server-Sent Events (SSE) and an adaptive computation strategy using Monte Carlo approximation.",
     ],
-    image: "/projects/plaque-analyzer.png",
+    image: "/projects/plaque.png",
     link: "https://plaqueanalyzerstudio-production.up.railway.app/",
+    github: "https://github.com/Atakan97/PlaqueAnalyzerStudio",
   },
   {
     title: "The Art of War",
@@ -70,33 +82,23 @@ export default function Projects() {
                 className="group flex flex-col rounded-2xl border border-border bg-card overflow-hidden hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500"
               >
                 {/* Project Image or Title */}
-                {project.image ? (
+                {project.image && (
                   <div className="relative h-64 w-full overflow-hidden border-b border-border/50">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700"
+                      className="object-cover object-top transition-transform duration-700"
                     />
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-90" />
-
-                    {/* Floating Title/Icon */}
-                    <div className="absolute bottom-5 left-6">
-                      <h4 className="text-2xl font-bold text-white drop-shadow-md group-hover:text-accent transition-colors duration-300">
-                        {project.title}
-                      </h4>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="p-6 pb-0">
-                    <h4 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
-                      {project.title}
-                    </h4>
                   </div>
                 )}
 
                 <div className="p-6 flex flex-col flex-grow">
+                  {/* Title */}
+                  <h4 className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                    {project.title}
+                  </h4>
+
                   {/* Tech badges */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((t) => (

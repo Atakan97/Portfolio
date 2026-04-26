@@ -11,10 +11,10 @@
   --muted: #1e293b; /* Slate-800 */
   --muted-foreground: #94a3b8; /* Slate-400 */
   
-  /* Accents: vibrant sky blue and glowing cyan */
-  --accent: #0ea5e9; /* Sky-500 */
-  --accent-foreground: #ffffff;
-  --accent-secondary: #06b6d4; /* Cyan-500 */
+  /* Accents: premium monochrome / silver */
+  --accent: #cbd5e1; /* Slate-300 (Elegant light grey) */
+  --accent-foreground: #020617; /* Slate-950 (Dark text for contrast on accent bg) */
+  --accent-secondary: #94a3b8; /* Slate-400 */
   
   /* Layout */
   --border: #1e293b; /* Slate-800 */
@@ -22,9 +22,9 @@
   
   /* Specific UI Elements */
   --timeline-line: #334155; /* Slate-700 */
-  --badge-bg: rgba(14, 165, 233, 0.1); /* Sky-500 at 10% opacity */
-  --badge-text: #38bdf8; /* Sky-400 */
-  --badge-border: rgba(14, 165, 233, 0.3); /* Sky-500 at 30% opacity */
+  --badge-bg: rgba(203, 213, 225, 0.1); /* Slate-300 at 10% opacity */
+  --badge-text: #e2e8f0; /* Slate-200 */
+  --badge-border: rgba(203, 213, 225, 0.3); /* Slate-300 at 30% opacity */
 }
 
 

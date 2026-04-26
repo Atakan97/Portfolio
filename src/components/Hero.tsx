@@ -63,11 +63,21 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-6 flex items-center justify-center gap-2 md:gap-4"
+          className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-3 flex items-center justify-center gap-2 md:gap-4"
         >
           <span className="text-accent text-4xl sm:text-5xl md:text-7xl font-mono opacity-80">{">"}</span>
           Atakan Arda Celik
         </motion.h1>
+
+        {/* Professional Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground/80 tracking-wide mb-8"
+        >
+          Software Engineer
+        </motion.h2>
 
         {/* Dynamic Typewriter Tagline */}
         <motion.div
