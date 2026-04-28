@@ -33,7 +33,7 @@ const projects: Project[] = [
       "Implemented real-time progress updates with Server-Sent Events (SSE) and an adaptive computation strategy using Monte Carlo approximation.",
     ],
     image: "/projects/plaque.png",
-    link: "https://plaqueanalyzerstudio-production.up.railway.app/",
+    link: "https://plaqueanalyzerstudio.onrender.com",
     github: "https://github.com/Atakan97/PlaqueAnalyzerStudio",
   },
   {
