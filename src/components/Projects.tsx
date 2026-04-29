@@ -43,6 +43,7 @@ const projects: Project[] = [
       "Developed a real-time strategy simulation game, implementing unit combat mechanics and AI behaviors.",
       "Applied A* pathfinding, unit formation, and real-time, state-based decision-making algorithms to control and navigate armies effectively.",
     ],
+    image: "/projects/theartofwar.png",
     github: "https://github.com/Atakan97/TheArtofWar",
   },
 ];
