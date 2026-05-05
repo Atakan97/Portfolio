@@ -130,7 +130,7 @@ export default function Hero() {
         >
           {/* Primary CTA */}
           <a
-            href="/AtakanArda_Celik_CV.pdf"
+            href="/Atakan_Arda_Celik_Resume.pdf"
             download
             className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-[0_0_40px_-10px_rgba(14,165,233,0.5)] hover:shadow-[0_0_60px_-15px_rgba(14,165,233,0.7)] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
           >

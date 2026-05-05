@@ -24,7 +24,8 @@ const skillGroups: SkillGroup[] = [
       { name: "Next.js", iconClass: "devicon-nextjs-plain-wordmark colored", invertDark: true },
       { name: "React", iconClass: "devicon-react-original colored" },
       { name: "Spring Boot", iconClass: "devicon-spring-original colored" },
-      { name: "ASP.NET Core", iconClass: "devicon-dotnetcore-plain colored" },
+      { name: ".NET", iconClass: "devicon-dotnetcore-plain colored" },
+      { name: "FastAPI", iconClass: "devicon-fastapi-plain colored" },
     ],
   },
   {
@@ -38,7 +39,6 @@ const skillGroups: SkillGroup[] = [
       { name: "Unity", customIcon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" className="w-[40px] h-[40px]" alt="Unity" /> },
       { name: "PostgreSQL", iconClass: "devicon-postgresql-plain colored" },
       { name: "MS SQL Server", iconClass: "devicon-microsoftsqlserver-plain colored" },
-      { name: "MySQL", iconClass: "devicon-mysql-plain colored" },
     ],
   },
 ];
@@ -61,7 +61,7 @@ export default function Skills() {
               Technologies I Use
             </h3>
             <p className="mt-4 text-muted-foreground max-w-2xl text-lg mx-auto">
-              A focused overview of the technologies I rely on to design, build, and ship reliable products across the stack.
+              A technical overview of the technologies I use to design and build products across the stack.
             </p>
           </div>
 

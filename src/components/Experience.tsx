@@ -43,10 +43,10 @@ const experiences: ExperienceItem[] = [
     description: "Built a full-stack customer feedback web application from scratch.",
     bullets: [
       "Built a full-stack customer feedback web application for evaluating proprietary software products.",
-      "Implemented backend CRUD workflows and server-side validation using C# and ASP.NET MVC, and integrated the data layer with Entity Framework and Microsoft SQL Server.",
-      "Developed the frontend with HTML, CSS, and JavaScript, creating an interactive user interface.",
+      "Implemented backend CRUD workflows and server-side validation using C# and .NET MVC, and integrated the data layer.",
+      "Developed the frontend section of the project by creating an interactive and responsive user interface.",
     ],
-    skills: ["C#", "ASP.NET MVC", "Entity Framework", "SQL Server", "JavaScript", "HTML/CSS"],
+    skills: ["C#", ".NET MVC", "Entity Framework", "SQL Server", "HTML/CSS"],
   },
   {
     title: "IT Intern",
@@ -60,7 +60,7 @@ const experiences: ExperienceItem[] = [
     bullets: [
       "Supported day-to-day operations and maintenance of ICT infrastructure, including network upkeep, software rollout, and testing activities.",
       "Assisted with Server Manager administration on Windows to ensure reliable domain integration of company PCs, and provided remote technical support for users.",
-      "Configured Microsoft Hyper-V virtual machines to test technical specifications on Linux (Ubuntu).",
+      "Configured Microsoft Hyper-V virtual machines to test technical specifications on Linux environments.",
     ],
     skills: ["Windows Server", "Hyper-V", "Ubuntu", "Networking", "IT Support"],
   },
@@ -113,7 +113,7 @@ export default function Experience() {
               Professional Experience
             </h3>
             <p className="mt-4 text-muted-foreground max-w-2xl text-lg">
-              My journey as a software developer, detailing the roles and technologies that have shaped my expertise.
+              Detailed information about my work experience and technologies that form the basis of my expertise as a software engineer.
             </p>
           </div>
 
