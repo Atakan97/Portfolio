@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Linkedin, Github, Download, Terminal, Database, Code2 } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, Terminal, Database, Code2 } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
 import PremiumTypewriter from "./PremiumTypewriter";
 import Image from "next/image";
@@ -128,21 +128,8 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          {/* Primary CTA */}
-          <a
-            href="/Atakan_Arda_Celik_Resume.pdf"
-            download
-            className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-accent px-8 py-4 text-base font-bold text-accent-foreground shadow-[0_0_40px_-10px_rgba(14,165,233,0.5)] hover:shadow-[0_0_60px_-15px_rgba(14,165,233,0.7)] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-          >
-            {/* Button Shine Effect */}
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-shimmer" />
-
-            <Download size={20} className="group-hover:scale-110 transition-transform" />
-            Download my CV
-          </a>
-
           {/* Minimalist Social Links (Glassmorphism) */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center gap-4">
             <a
               href="https://github.com/Atakan97"
               target="_blank"

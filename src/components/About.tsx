@@ -47,7 +47,7 @@ export default function About() {
                 I&apos;m Atakan Arda Celik, a software engineer holding an M.Sc. in Computer Science from the University of Passau, Germany and a B.Sc. in Computer Engineering from Dokuz Eylul University, Turkey.
               </p>
               <p>
-                My professional background is focused on full-stack web development and AI engineering, with experience designing and delivering production-ready applications using Spring Boot, .NET, and modern frontend frameworks. I work effectively in international, Agile-driven teams and bring a structured mindset to every project I contribute to.
+                My professional background is focused on full-stack web development and AI engineering, with experience designing and delivering production-ready applications using Spring Boot, FastAPI, .NET, and modern frontend frameworks. I work effectively in cross-functional Agile teams and bring a structured mindset to every project I contribute to.
               </p>
             </div>
           </div>
