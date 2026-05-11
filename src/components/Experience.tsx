@@ -90,7 +90,7 @@ const ExperienceLogo = ({ item, size = "large" }: { item: ExperienceItem, size?:
 
 export default function Experience() {
   return (
-    <section id="experience" className="min-h-screen py-24 bg-section-alt relative overflow-hidden">
+    <section id="experience" className="min-h-screen py-24 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] sm:right-[-5%] w-[300px] h-[300px] rounded-full bg-accent/5 blur-[100px]" />

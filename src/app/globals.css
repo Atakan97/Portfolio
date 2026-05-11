@@ -45,6 +45,7 @@
   --color-badge-text: var(--badge-text);
   --color-badge-border: var(--badge-border);
   --font-sans: var(--font-outfit);
+  --font-serif: var(--font-playfair);
   --font-mono: var(--font-geist-mono);
 }
 

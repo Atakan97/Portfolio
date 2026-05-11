@@ -98,7 +98,7 @@ export default function Contact() {
   // ── Render ─────────────────────────────────────────────────────────────────
 
   return (
-    <section id="contact" className="min-h-screen py-24 bg-section-alt">
+    <section id="contact" className="min-h-screen py-24">
       <div className="mx-auto max-w-3xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

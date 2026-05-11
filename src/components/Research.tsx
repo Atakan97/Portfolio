@@ -33,7 +33,7 @@ const papers: Paper[] = [
 
 export default function Research() {
   return (
-    <section id="research" className="min-h-screen py-24 bg-section-alt relative overflow-hidden flex items-center">
+    <section id="research" className="min-h-screen py-24 relative overflow-hidden flex items-center">
       <div className="mx-auto max-w-4xl px-6 w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

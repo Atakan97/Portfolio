@@ -10,6 +10,7 @@ import Research from "@/components/Research";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ParallaxBackground from "@/components/ui/mouse-responsive-background";
 
 // ---------------------------------------------------------------------------
 // Animation variants for page transitions
@@ -53,7 +54,8 @@ export default function SectionRenderer() {
   const ActiveComponent = sectionComponents[activeSection];
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      <ParallaxBackground />
       <AnimatePresence mode="wait">
         <motion.div
           key={activeSection}
@@ -63,8 +65,8 @@ export default function SectionRenderer() {
           exit="exit"
         >
           <ActiveComponent />
-          {/* Show footer on every section except hero */}
-          {activeSection !== "hero" && <Footer />}
+          {/* Show unified footer on every section */}
+          <Footer />
         </motion.div>
       </AnimatePresence>
     </main>

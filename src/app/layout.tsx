@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Geist_Mono } from "next/font/google";
+import { Outfit, Geist_Mono, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import SectionProvider from "@/components/SectionProvider";
 import "./globals.css";
@@ -8,6 +8,12 @@ const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const geistMono = Geist_Mono({
@@ -52,7 +58,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${outfit.variable} ${geistMono.variable} antialiased font-sans`}
+        className={`${outfit.variable} ${playfair.variable} ${geistMono.variable} antialiased font-sans`}
       >
         <SectionProvider>
           <Navbar />

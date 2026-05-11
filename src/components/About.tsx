@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="min-h-screen py-24 bg-section-alt">
+    <section id="about" className="min-h-screen py-24">
       <div className="mx-auto max-w-4xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

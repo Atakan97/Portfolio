@@ -45,7 +45,7 @@ const skillGroups: SkillGroup[] = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="min-h-screen py-24 bg-section-alt">
+    <section id="skills" className="min-h-screen py-24">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
