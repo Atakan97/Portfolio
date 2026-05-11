@@ -3,6 +3,27 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ExternalLink, ChevronRight } from "lucide-react";
+import { InfiniteSlider } from "./ui/infinite-slider";
+
+// Devicon class mapping matching the Skills page
+const skillIconClass: Record<string, string> = {
+  "Java": "devicon-java-plain colored",
+  "GraphQL": "devicon-graphql-plain colored",
+  "Spring Boot": "devicon-spring-original colored",
+  "Postman": "devicon-postman-plain colored",
+  "Agile/Scrum": "devicon-jira-plain colored",
+  "Jira": "devicon-jira-plain colored",
+  "C#": "devicon-csharp-plain colored",
+  ".NET MVC": "devicon-dotnetcore-plain colored",
+  "Entity Framework": "devicon-dotnetcore-plain colored",
+  "SQL Server": "devicon-microsoftsqlserver-plain colored",
+  "HTML/CSS": "devicon-html5-plain colored",
+  "Windows Server": "devicon-windows8-original colored",
+  "Hyper-V": "devicon-windows8-original colored",
+  "Ubuntu": "devicon-ubuntu-plain colored",
+  "Networking": "devicon-ssh-original",
+  "IT Support": "devicon-linux-plain",
+};
 
 interface ExperienceItem {
   title: string;
@@ -74,14 +95,14 @@ const ExperienceLogo = ({ item, size = "large" }: { item: ExperienceItem, size?:
 
   return (
     <div
-      className={`${containerClasses} items-center justify-center shadow-sm group-hover:shadow-accent/20 transition-all duration-300 relative overflow-hidden flex`}
+      className={`${containerClasses} items-center justify-center shadow-sm relative overflow-hidden flex`}
       style={{ backgroundColor: item.logoBg ?? "#ffffff" }}
     >
       {item.logoUrl && (
         <img
           src={item.logoUrl}
           alt={`${item.company} logo`}
-          className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-contain relative z-10"
         />
       )}
     </div>
@@ -126,11 +147,11 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative group"
+                className="relative"
               >
                 {/* Vertical Timeline Line */}
                 {index !== experiences.length - 1 && (
-                  <div className="absolute left-[2rem] top-20 bottom-[-4rem] w-px bg-border/80 group-hover:bg-accent/40 transition-colors duration-500 hidden md:block" />
+                  <div className="absolute left-[2rem] top-20 bottom-[-4rem] w-px bg-border/80 hidden md:block" />
                 )}
 
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8">
@@ -140,9 +161,7 @@ export default function Experience() {
                   </div>
 
                   {/* Right Column: Experience Content */}
-                  <div className="flex-1 rounded-2xl border border-border bg-card p-6 md:p-8 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 overflow-hidden relative">
-                    {/* Hover internal gradient */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="flex-1 rounded-2xl border border-border bg-card p-6 md:p-8 overflow-hidden relative">
 
                     {/* Header */}
                     <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-4 mb-5">
@@ -169,7 +188,7 @@ export default function Experience() {
                           </div>
                         </div>
 
-                        <h4 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight group-hover:text-accent transition-colors duration-300">
+                        <h4 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
                           {exp.title}
                         </h4>
                       </div>
@@ -199,26 +218,40 @@ export default function Experience() {
                           key={j}
                           className="flex items-start gap-3 text-sm md:text-base text-muted-foreground leading-relaxed group/item"
                         >
-                          <ChevronRight size={16} className="mt-0.5 text-accent shrink-0 group-hover/item:translate-x-1 transition-transform" />
+                          <ChevronRight size={16} className="mt-0.5 text-accent shrink-0" />
                           <span>{b}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Skills/Tech Stack */}
-                    <div className="pt-6 border-t border-border/50">
-                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                    <div className="pt-6 border-t border-border/50 relative overflow-hidden">
+                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4 relative z-20">
                         Technologies & Skills
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill, k) => (
-                          <span
-                            key={k}
-                            className="px-3 py-1.5 text-xs font-medium bg-background text-foreground border border-border rounded-lg hover:border-accent hover:text-accent transition-colors duration-200 cursor-default"
-                          >
-                            {skill}
-                          </span>
-                        ))}
+                      
+                      <div className="relative h-[40px] w-full mt-2">
+                        <InfiniteSlider 
+                          className="flex h-full w-full items-center" 
+                          speed={160}
+                          gap={24}
+                        >
+                          {exp.skills.map((skill, k) => {
+                            return (
+                              <div
+                                key={k}
+                                className="flex items-center gap-2 whitespace-nowrap cursor-default"
+                              >
+                                {skillIconClass[skill] ? (
+                                  <i className={`${skillIconClass[skill]} text-[18px] shrink-0 ${!skillIconClass[skill].includes('colored') ? 'text-accent/90' : ''}`}></i>
+                                ) : (
+                                  <span className="w-[18px] h-[18px] flex items-center justify-center text-accent font-bold text-xs shrink-0">{skill.charAt(0)}</span>
+                                )}
+                                <span className="text-sm font-medium text-foreground/90">{skill}</span>
+                              </div>
+                            );
+                          })}
+                        </InfiniteSlider>
                       </div>
                     </div>
                   </div>

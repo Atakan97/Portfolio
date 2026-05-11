@@ -65,13 +65,14 @@ export default function PremiumTypewriter({
 
   return (
     <span className="relative inline-flex items-center text-left">
-      {/* Invisible twin forces exact width of the LONGEST word. */}
-      {/* This ensures the preceding text "Engineering solutions in" NEVER shifts, even when switching words. */}
-      <span className="opacity-0 pointer-events-none whitespace-nowrap">
+      <span className="hidden md:inline opacity-0 pointer-events-none whitespace-nowrap">
         {longestWord}
       </span>
       
-      {/* Visible typing text positioned absolutely over the twin */}
+      <span className="md:hidden opacity-0 pointer-events-none whitespace-nowrap">
+        {words[index]}
+      </span>
+      
       <span className="absolute left-0 inset-y-0 flex items-center whitespace-nowrap">
         <motion.span>{displayText}</motion.span>
         <motion.span

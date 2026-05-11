@@ -25,6 +25,10 @@
   --badge-bg: rgba(203, 213, 225, 0.1); /* Slate-300 at 10% opacity */
   --badge-text: #e2e8f0; /* Slate-200 */
   --badge-border: rgba(203, 213, 225, 0.3); /* Slate-300 at 30% opacity */
+
+  /* Sparkles/Slider */
+  --gradient-color: var(--background);
+  --sparkles-color: var(--accent);
 }
 
 

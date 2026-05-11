@@ -3,6 +3,21 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
+import { InfiniteSlider } from "./ui/infinite-slider";
+
+const projectIconClass: Record<string, string> = {
+  "Next.js": "devicon-nextjs-plain",
+  "React": "devicon-react-original colored",
+  "FastAPI": "devicon-fastapi-plain colored",
+  "Supabase pgvector": "devicon-supabase-plain colored",
+  "Java": "devicon-java-plain colored",
+  "Spring Boot": "devicon-spring-original colored",
+  "JavaScript": "devicon-javascript-plain colored",
+  "PostgreSQL": "devicon-postgresql-plain colored",
+  "Docker": "devicon-docker-plain colored",
+  "C#": "devicon-csharp-plain colored",
+  "Unity": "devicon-unity-plain",
+};
 
 interface Project {
   title: string;
@@ -101,15 +116,26 @@ export default function Projects() {
                   </h4>
 
                   {/* Tech badges */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-md border border-badge-border bg-badge-bg px-2.5 py-1 text-xs font-semibold text-badge-text shadow-sm"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                  <div className="relative h-[32px] w-full mb-6 overflow-hidden border-y border-border/40 py-1">
+                    <InfiniteSlider 
+                      className="flex h-full w-full items-center" 
+                      speed={160}
+                      gap={40}
+                    >
+                      {project.tech.map((t, k) => (
+                        <div
+                          key={k}
+                          className="flex items-center gap-2 whitespace-nowrap cursor-default"
+                        >
+                          {projectIconClass[t] ? (
+                            <i className={`${projectIconClass[t]} text-[16px] shrink-0 ${!projectIconClass[t].includes('colored') ? 'text-accent/90' : ''}`}></i>
+                          ) : (
+                            <span className="w-[16px] h-[16px] flex items-center justify-center text-accent font-bold text-[10px] shrink-0">{t.charAt(0)}</span>
+                          )}
+                          <span className="text-xs font-semibold text-foreground/90 tracking-wide">{t}</span>
+                        </div>
+                      ))}
+                    </InfiniteSlider>
                   </div>
 
                   {/* Description */}

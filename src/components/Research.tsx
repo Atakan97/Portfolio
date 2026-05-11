@@ -63,14 +63,12 @@ export default function Research() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="flex flex-col rounded-2xl border border-border bg-card p-6 md:p-8 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 overflow-hidden relative group"
+                className="flex flex-col rounded-2xl border border-border bg-card p-6 md:p-8 overflow-hidden relative"
               >
-                {/* Hover internal gradient */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 {/* Title and Download Button Row */}
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5 relative z-10">
-                  <h4 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight group-hover:text-accent transition-colors duration-300 max-w-2xl">
+                  <h4 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight max-w-2xl">
                     {paper.title}
                   </h4>
                   
@@ -100,7 +98,7 @@ export default function Research() {
                     {paper.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1.5 text-xs font-medium bg-background text-foreground border border-border rounded-lg hover:border-accent hover:text-accent transition-colors duration-200 cursor-default"
+                        className="px-3 py-1.5 text-xs font-medium bg-background text-foreground border border-border rounded-lg cursor-default"
                       >
                         {tag}
                       </span>

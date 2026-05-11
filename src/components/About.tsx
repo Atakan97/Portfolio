@@ -25,9 +25,9 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="flex justify-center mb-10"
             >
-              <div className="relative group">
+              <div className="relative">
                 {/* Glow ring */}
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-accent to-accent-secondary opacity-30 blur-md group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-accent to-accent-secondary opacity-30 blur-md transition-opacity duration-500" />
                 {/* Photo container */}
                 <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-card shadow-xl shadow-accent/10 ring-2 ring-border">
                   <Image
