@@ -17,6 +17,8 @@ const projectIconClass: Record<string, string> = {
   "Docker": "devicon-docker-plain colored",
   "C#": "devicon-csharp-plain colored",
   "Unity": "devicon-unity-plain",
+  "Prometheus": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg",
+  "Grafana": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg",
 };
 
 interface Project {
@@ -31,10 +33,11 @@ interface Project {
 const projects: Project[] = [
   {
     title: "RAG Documentation Assistant",
-    tech: ["Next.js", "React", "FastAPI", "Supabase pgvector", "LangChain", "Groq LLM"],
+    tech: ["Next.js", "React", "FastAPI", "Supabase pgvector", "LangChain", "Groq LLM", "Prometheus", "Grafana"],
     description: [
       "Built a full-stack Retrieval-Augmented Generation (RAG) AI assistant with delivering accurate, and cited answers from FastAPI documentation.",
       "Engineered a vector search pipeline using Supabase pgvector and BAAI embeddings. Deployed a Next.js frontend on Vercel and a FastAPI backend on Hugging Face Spaces.",
+      "Added Prometheus and Grafana observability to a FastAPI RAG app, with custom metrics for query latency, RAG pipeline step durations, errors, and retrieval similarity.",
     ],
     image: "/projects/rag_assistant.png",
     link: "https://rag-doc-assistant-one.vercel.app/",
@@ -128,7 +131,15 @@ export default function Projects() {
                           className="flex items-center gap-2 whitespace-nowrap cursor-default"
                         >
                           {projectIconClass[t] ? (
-                            <i className={`${projectIconClass[t]} text-[16px] shrink-0 ${!projectIconClass[t].includes('colored') ? 'text-accent/90' : ''}`}></i>
+                            projectIconClass[t].startsWith("http") || projectIconClass[t].startsWith("/") ? (
+                              <img
+                                src={projectIconClass[t]}
+                                alt={t}
+                                className="w-[16px] h-[16px] shrink-0"
+                              />
+                            ) : (
+                              <i className={`${projectIconClass[t]} text-[16px] shrink-0 ${!projectIconClass[t].includes('colored') ? 'text-accent/90' : ''}`}></i>
+                            )
                           ) : (
                             <span className="w-[16px] h-[16px] flex items-center justify-center text-accent font-bold text-[10px] shrink-0">{t.charAt(0)}</span>
                           )}
