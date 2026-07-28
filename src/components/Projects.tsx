@@ -19,6 +19,11 @@ const projectIconClass: Record<string, string> = {
   "Unity": "devicon-unity-plain",
   "Prometheus": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg",
   "Grafana": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg",
+  "Playwright": "devicon-playwright-plain colored",
+  "Python": "devicon-python-plain colored",
+  "Prefect": "https://cdn.simpleicons.org/prefect",
+  "dbt": "https://cdn.simpleicons.org/dbt",
+  "XGBoost": "/logos/xgboost.svg",
 };
 
 interface Project {
@@ -32,12 +37,25 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "RAG Documentation Assistant",
-    tech: ["Next.js", "React", "FastAPI", "Supabase pgvector", "LangChain", "Groq LLM", "Prometheus", "Grafana"],
+    title: "Deutsche Bahn Delay Analysis",
+    tech: ["Python", "FastAPI", "Prefect", "dbt", "XGBoost", "PostgreSQL", "Docker"],
+    description: [
+      "Built an automated ELT pipeline using Prefect and dbt to ingest real-time API data into PostgreSQL for Deutsche Bahn delay analysis and prediction.",
+      "Trained an XGBoost model with 20% MAE improvement over baseline, tracked with MLflow and SHAP.",
+      "Served predictions with a FastAPI RESTful microservice and integrated them into a Streamlit dashboard.",
+    ],
+    image: "/projects/db-delay.png",
+    link: "https://db-delay-analysis.streamlit.app/",
+    github: "https://github.com/Atakan97/deutsche-bahn-delay-analysis",
+  },
+  {
+    title: "RAG AI Assistant",
+    tech: ["Next.js", "React", "FastAPI", "Supabase pgvector", "LangChain", "Groq LLM", "Prometheus", "Grafana", "Playwright"],
     description: [
       "Built a full-stack Retrieval-Augmented Generation (RAG) AI assistant with delivering accurate, and cited answers from FastAPI documentation.",
       "Engineered a vector search pipeline using Supabase pgvector and BAAI embeddings. Deployed a Next.js frontend on Vercel and a FastAPI backend on Hugging Face Spaces.",
       "Added Prometheus and Grafana observability to a FastAPI RAG app, with custom metrics for query latency, RAG pipeline step durations, errors, and retrieval similarity.",
+      "Implemented Playwright frontend tests and pytest unit/integration tests to improve quality assurance.",
     ],
     image: "/projects/rag_assistant.png",
     link: "https://rag-doc-assistant-one.vercel.app/",
@@ -49,6 +67,7 @@ const projects: Project[] = [
     description: [
       "Built an interactive web application to teach database normalization with “plaque” redundancy visualization and guided decomposition.",
       "Implemented real-time progress updates with Server-Sent Events (SSE) and an adaptive computation strategy using Monte Carlo approximation.",
+      "Delivered a CI/CD pipeline in GitHub Actions with automated JUnit testing for continuous deployment, used AI-assisted development workflows to accelerate prototyping.",
     ],
     image: "/projects/plaque.png",
     link: "https://plaqueanalyzerstudio.onrender.com",
