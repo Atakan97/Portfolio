@@ -1,29 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, MapPin, ExternalLink, ChevronRight } from "lucide-react";
-import { InfiniteSlider } from "./ui/infinite-slider";
-
-// Devicon class mapping matching the Skills page
-const skillIconClass: Record<string, string> = {
-  "Java": "devicon-java-plain colored",
-  "GraphQL": "devicon-graphql-plain colored",
-  "Spring Boot": "devicon-spring-original colored",
-  "Postman": "devicon-postman-plain colored",
-  "Agile/Scrum": "devicon-jira-plain colored",
-  "Jira": "devicon-jira-plain colored",
-  "C#": "devicon-csharp-plain colored",
-  ".NET MVC": "devicon-dotnetcore-plain colored",
-  "Entity Framework": "devicon-dotnetcore-plain colored",
-  "SQL Server": "devicon-microsoftsqlserver-plain colored",
-  "HTML/CSS": "devicon-html5-plain colored",
-  "Windows Server": "devicon-windows8-original colored",
-  "Hyper-V": "devicon-windows8-original colored",
-  "Ubuntu": "devicon-ubuntu-plain colored",
-  "Networking": "devicon-ssh-original",
-  "IT Support": "devicon-linux-plain",
-};
+import { Calendar, MapPin, ExternalLink } from "lucide-react";
 
 interface ExperienceItem {
   title: string;
@@ -34,8 +13,6 @@ interface ExperienceItem {
   period: string;
   location: string;
   description: string;
-  bullets: string[];
-  skills: string[];
 }
 
 const experiences: ExperienceItem[] = [
@@ -46,44 +23,26 @@ const experiences: ExperienceItem[] = [
     logoUrl: "/logos/epam.svg",
     period: "Nov 2021 – Apr 2022",
     location: "Izmir, Turkey",
-    description: "Contributed to customizable order management solutions for enterprise clients.",
-    bullets: [
-      "Developed a customizable order management solution in Java, implementing GraphQL APIs and backend components aligned with customer-specific requirements.",
-      "Designed and executed comprehensive API test scenarios using Postman, and implemented unit tests to improve reliability and maintainability.",
-      "Collaborated in an international Agile team, clarified requirements through documentation analysis, and supported sprint delivery by managing Jira tickets.",
-    ],
-    skills: ["Java", "GraphQL", "Spring Boot", "Postman", "Agile/Scrum", "Jira"],
+    description: "Contributed to customizable order management solutions and API integrations for enterprise clients in an Agile environment.",
   },
   {
-    title: "Software Development Intern",
+    title: "Software Engineer Intern",
     company: "C System Software and Information Tech.",
     companyUrl: "https://csistem.com.tr",
     logoUrl: "/logos/csistem.svg",
-    period: "Apr 2021 - Jun 2021",
+    period: "Apr 2021 – Jun 2021",
     location: "Izmir, Turkey",
-    description: "Built a full-stack customer feedback web application from scratch.",
-    bullets: [
-      "Built a full-stack customer feedback web application for evaluating proprietary software products.",
-      "Implemented backend CRUD workflows and server-side validation using C# and .NET MVC, and integrated the data layer.",
-      "Developed the frontend section of the project by creating an interactive and responsive user interface.",
-    ],
-    skills: ["C#", ".NET MVC", "Entity Framework", "SQL Server", "HTML/CSS"],
+    description: "Built a full-stack customer feedback web application implementing database-oriented workflows and responsive user interfaces.",
   },
   {
-    title: "IT Intern",
+    title: "Software & IT Intern",
     company: "Yokogawa",
     companyUrl: "https://www.yokogawa.com",
     logoUrl: "/logos/yokogawa.svg",
     logoBg: "#014F99",
     period: "Aug 2019 – Sep 2019",
     location: "Izmir, Turkey",
-    description: "Supported and optimized enterprise ICT infrastructure operations.",
-    bullets: [
-      "Supported day-to-day operations and maintenance of ICT infrastructure, including network upkeep, software rollout, and testing activities.",
-      "Assisted with Server Manager administration on Windows to ensure reliable domain integration of company PCs, and provided remote technical support for users.",
-      "Configured Microsoft Hyper-V virtual machines to test technical specifications on Linux environments.",
-    ],
-    skills: ["Windows Server", "Hyper-V", "Ubuntu", "Networking", "IT Support"],
+    description: "Supported enterprise ICT infrastructure operations, network maintenance, system automation tasks, and virtualized testing environments.",
   },
 ];
 
@@ -134,7 +93,7 @@ export default function Experience() {
               Professional Experience
             </h3>
             <p className="mt-4 text-muted-foreground max-w-2xl text-lg">
-              Detailed information about my work experience and technologies that form the basis of my expertise as a software engineer.
+              High-level overview of my professional work experience across software engineering and technical roles.
             </p>
           </div>
 
@@ -208,52 +167,9 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <p className="text-foreground/80 mb-6 font-medium text-sm md:text-base border-l-2 border-accent/40 pl-4 py-1">
+                    <p className="text-foreground/80 font-medium text-sm md:text-base border-l-2 border-accent/40 pl-4 py-1">
                       {exp.description}
                     </p>
-
-                    <ul className="space-y-3 mb-8">
-                      {exp.bullets.map((b, j) => (
-                        <li
-                          key={j}
-                          className="flex items-start gap-3 text-sm md:text-base text-muted-foreground leading-relaxed group/item"
-                        >
-                          <ChevronRight size={16} className="mt-0.5 text-accent shrink-0" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Skills/Tech Stack */}
-                    <div className="pt-6 border-t border-border/50 relative overflow-hidden">
-                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4 relative z-20">
-                        Technologies & Skills
-                      </div>
-                      
-                      <div className="relative h-[40px] w-full mt-2">
-                        <InfiniteSlider 
-                          className="flex h-full w-full items-center" 
-                          speed={160}
-                          gap={24}
-                        >
-                          {exp.skills.map((skill, k) => {
-                            return (
-                              <div
-                                key={k}
-                                className="flex items-center gap-2 whitespace-nowrap cursor-default"
-                              >
-                                {skillIconClass[skill] ? (
-                                  <i className={`${skillIconClass[skill]} text-[18px] shrink-0 ${!skillIconClass[skill].includes('colored') ? 'text-accent/90' : ''}`}></i>
-                                ) : (
-                                  <span className="w-[18px] h-[18px] flex items-center justify-center text-accent font-bold text-xs shrink-0">{skill.charAt(0)}</span>
-                                )}
-                                <span className="text-sm font-medium text-foreground/90">{skill}</span>
-                              </div>
-                            );
-                          })}
-                        </InfiniteSlider>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </motion.div>
