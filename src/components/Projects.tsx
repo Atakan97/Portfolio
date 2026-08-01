@@ -21,8 +21,8 @@ const projectIconClass: Record<string, string> = {
   "Grafana": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg",
   "Playwright": "devicon-playwright-plain colored",
   "Python": "devicon-python-plain colored",
-  "Prefect": "https://cdn.simpleicons.org/prefect",
-  "dbt": "https://cdn.simpleicons.org/dbt",
+  "Prefect": "/logos/prefect.svg",
+  "dbt": "/logos/dbt.svg",
   "XGBoost": "/logos/xgboost.svg",
 };
 
