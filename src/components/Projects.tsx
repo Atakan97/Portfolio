@@ -21,7 +21,7 @@ const projectIconClass: Record<string, string> = {
   "Grafana": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg",
   "Playwright": "devicon-playwright-plain colored",
   "Python": "devicon-python-plain colored",
-  "Prefect": "/logos/prefect.svg",
+  "Apache Airflow": "devicon-apacheairflow-plain colored",
   "dbt": "/logos/dbt.svg",
   "XGBoost": "/logos/xgboost.svg",
 };
@@ -38,9 +38,9 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Deutsche Bahn Delay Analysis",
-    tech: ["Python", "FastAPI", "Prefect", "dbt", "XGBoost", "PostgreSQL", "Docker"],
+    tech: ["Python", "FastAPI", "Apache Airflow", "dbt", "XGBoost", "PostgreSQL", "Docker"],
     description: [
-      "Built an automated ELT pipeline using Prefect and dbt to ingest real-time API data into PostgreSQL for Deutsche Bahn delay analysis and prediction.",
+      "Built an automated ELT pipeline using Apache Airflow and dbt to ingest real-time API data into PostgreSQL for Deutsche Bahn delay analysis and prediction.",
       "Trained an XGBoost model with 20% MAE improvement over baseline, tracked with MLflow and SHAP.",
       "Served predictions with a FastAPI RESTful microservice and integrated them into a Streamlit dashboard.",
     ],

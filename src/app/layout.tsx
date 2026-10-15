@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Outfit, Geist_Mono, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import SectionProvider from "@/components/SectionProvider";
+import ChatProvider from "@/components/chat/ChatProvider";
+import ChatWidget from "@/components/chat/ChatWidget";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -61,8 +63,11 @@ export default function RootLayout({
         className={`${outfit.variable} ${playfair.variable} ${geistMono.variable} antialiased font-sans`}
       >
         <SectionProvider>
-          <Navbar />
-          {children}
+          <ChatProvider>
+            <Navbar />
+            {children}
+            <ChatWidget />
+          </ChatProvider>
         </SectionProvider>
       </body>
     </html>

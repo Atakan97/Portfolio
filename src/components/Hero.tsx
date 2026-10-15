@@ -1,10 +1,9 @@
 "use client";
 
-import { Mail, MapPin, Linkedin, Github, Terminal, Database, Code2 } from "lucide-react";
-import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
+import { MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 import PremiumTypewriter from "./PremiumTypewriter";
-import Image from "next/image";
-import { SocialIcons } from "./ui/social-icons";
+import AskAiButton from "./chat/AskAiButton";
 
 
 export default function Hero() {
@@ -66,7 +65,7 @@ export default function Hero() {
           <MapPin size={18} className="text-accent-secondary" />
           <span className="text-base font-medium tracking-wide">Passau, Germany</span>
         </motion.div>
-
+        <AskAiButton />
       </div>
     </section>
   );

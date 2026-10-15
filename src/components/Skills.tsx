@@ -34,6 +34,7 @@ const skillGroups: SkillGroup[] = [
     skills: [
       { name: "Git", iconClass: "devicon-git-plain colored" },
       { name: "Docker", iconClass: "devicon-docker-plain colored" },
+      { name: "Apache Airflow", iconClass: "devicon-apacheairflow-plain colored" },
       { name: "GraphQL", iconClass: "devicon-graphql-plain colored" },
       { name: "Postman", iconClass: "devicon-postman-plain colored" },
       { name: "Jira", iconClass: "devicon-jira-plain colored" },
