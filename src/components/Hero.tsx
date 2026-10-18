@@ -1,71 +1,126 @@
 "use client";
 
-import { MapPin } from "lucide-react";
-import { motion } from "framer-motion";
+import { useSyncExternalStore } from "react";
+import { Github, MapPin } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import PremiumTypewriter from "./PremiumTypewriter";
 import AskAiButton from "./chat/AskAiButton";
+import AnimatedPill from "./ui/animated-pill";
 
+const specialties = [
+  "Full-Stack Development",
+  "AI-Driven Systems",
+  "Modern Web Applications",
+];
+
+function subscribeToHydration() {
+  return () => {};
+}
 
 export default function Hero() {
+  const motionPreference = useReducedMotion();
+  const hasHydrated = useSyncExternalStore(
+    subscribeToHydration,
+    () => true,
+    () => false,
+  );
+  const shouldReduceMotion = hasHydrated && motionPreference === true;
+
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] pt-32 pb-20 flex flex-col justify-center overflow-hidden"
+      aria-labelledby="hero-heading"
+      className="relative isolate flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-black px-6 pb-28 pt-36 text-white sm:px-10 sm:pb-32 sm:pt-44"
     >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#030712_0%,#000_30%,#000_85%,#020617_100%)]" />
 
+        {hasHydrated && motionPreference === false && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            disablePictureInPicture
+            tabIndex={-1}
+            className="absolute inset-x-0 bottom-0 h-[72%] w-full object-cover object-center opacity-70 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_80%,transparent)] sm:h-[85%]"
+          >
+            <source src="/hero/jelly-background.mp4" type="video/mp4" />
+          </video>
+        )}
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 flex flex-col items-center text-center">
+        <div className="absolute left-1/2 top-1/3 h-64 w-[85%] max-w-3xl -translate-x-1/2 -rotate-30 rounded-full bg-blue-500/20 blur-[100px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.55)_45%,transparent_85%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      </div>
 
-        {/* Name */}
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          id="hero-heading"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-foreground mb-3 flex items-center justify-center gap-2 md:gap-4 font-serif"
+          transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.1 }}
+          className="mb-5 bg-gradient-to-b from-red-200 via-blue-200 to-white bg-clip-text pb-2 text-5xl leading-[1.06] font-normal tracking-tighter text-balance text-transparent sm:text-6xl md:text-7xl lg:text-8xl"
         >
           Atakan Arda Celik
         </motion.h1>
 
-        {/* Professional Title */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground/80 tracking-wide mb-8 font-serif"
+          transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.15 }}
+          className="text-2xl font-normal tracking-tight text-slate-200 sm:text-3xl md:text-4xl"
         >
           Software Engineer
         </motion.h2>
 
-        {/* Dynamic Typewriter Tagline */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col items-center md:block text-xl md:text-3xl text-muted-foreground font-medium mb-8 font-serif text-center"
+          transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: 0.2 }}
+          className="mt-8 mb-6 flex flex-col items-center text-lg leading-relaxed text-slate-400 sm:text-xl md:text-2xl"
         >
-          <span>Engineering solutions in{" "}</span>
-          <span className="text-accent font-semibold font-serif">
-            <PremiumTypewriter
-              words={['Full-Stack Development', 'AI-Driven Systems', 'Modern Web Applications']}
-              delay={1500}
-              typeSpeed={0.07}
-              deleteSpeed={0.04}
-              cursorChar='_'
-            />
+          <span>Engineering solutions in</span>
+          <span className="mt-1 min-h-[1.5em] font-medium text-blue-100">
+            {shouldReduceMotion ? (
+              specialties[0]
+            ) : (
+              <PremiumTypewriter
+                words={specialties}
+                delay={1500}
+                typeSpeed={0.07}
+                deleteSpeed={0.04}
+                cursorChar="_"
+              />
+            )}
           </span>
         </motion.div>
 
-        {/* Location */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={shouldReduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="flex items-center justify-center gap-2 text-muted-foreground mb-12"
+          transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.4 }}
+          className="mb-9 flex items-center justify-center gap-2 text-slate-400"
         >
-          <MapPin size={18} className="text-accent-secondary" />
-          <span className="text-base font-medium tracking-wide">Passau, Germany</span>
+          <MapPin size={16} aria-hidden="true" className="text-blue-200/80" />
+          <span className="text-sm tracking-wide">Passau, Germany</span>
         </motion.div>
-        <AskAiButton />
+
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: 0.45 }}
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+        >
+          <AskAiButton />
+          <AnimatedPill
+            label="GitHub"
+            icon={Github}
+            href="https://github.com/Atakan97/Portfolio"
+            aria-label="View the portfolio repository on GitHub (opens in a new tab)"
+          />
+        </motion.div>
       </div>
     </section>
   );

@@ -31,6 +31,8 @@ export default function PremiumTypewriter({
 
   useEffect(() => {
     const currentWordLength = words[index].length;
+    let pauseTimeout: ReturnType<typeof setTimeout> | undefined;
+    let deleteControls: ReturnType<typeof animate> | undefined;
     
     // Animate typing forward
     const controls = animate(count, currentWordLength, {
@@ -39,8 +41,8 @@ export default function PremiumTypewriter({
       ease: "linear",
       onComplete: () => {
         // Wait after typing is complete, then delete
-        setTimeout(() => {
-          animate(count, 0, {
+        pauseTimeout = setTimeout(() => {
+          deleteControls = animate(count, 0, {
             type: "tween",
             duration: currentWordLength * deleteSpeed,
             ease: "linear",
@@ -54,26 +56,28 @@ export default function PremiumTypewriter({
     });
 
     // Cleanup animation on unmount
-    return () => controls.stop();
+    return () => {
+      clearTimeout(pauseTimeout);
+      controls.stop();
+      deleteControls?.stop();
+    };
   }, [index, words, count, typeSpeed, deleteSpeed, delay]);
 
-  // Find the longest word to set the static maximum width permanently
-  const longestWord = words.reduce(
-    (a, b) => (a.length > b.length ? a : b),
-    ""
-  );
-
   return (
-    <span className="relative inline-flex items-center text-left">
-      <span className="hidden md:inline opacity-0 pointer-events-none whitespace-nowrap">
-        {longestWord}
-      </span>
-      
-      <span className="md:hidden opacity-0 pointer-events-none whitespace-nowrap">
-        {words[index]}
-      </span>
-      
-      <span className="absolute left-0 inset-y-0 flex items-center whitespace-nowrap">
+    <span className="inline-grid text-center">
+      {/* Reserve the widest phrase, including the cursor, at every breakpoint. */}
+      {words.map((word, wordIndex) => (
+        <span
+          key={wordIndex}
+          aria-hidden="true"
+          className="pointer-events-none invisible col-start-1 row-start-1 whitespace-nowrap"
+        >
+          {word}
+          <span className="ml-[2px] font-bold">{cursorChar}</span>
+        </span>
+      ))}
+
+      <span className="col-start-1 row-start-1 flex items-center justify-center whitespace-nowrap">
         <motion.span>{displayText}</motion.span>
         <motion.span
           animate={{ opacity: [1, 0, 1] }}

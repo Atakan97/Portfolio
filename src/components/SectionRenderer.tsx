@@ -52,10 +52,11 @@ export default function SectionRenderer() {
   const { activeSection } = useSection();
 
   const ActiveComponent = sectionComponents[activeSection];
+  const isHero = activeSection === "hero";
 
   return (
-    <main className="min-h-screen relative">
-      <ParallaxBackground />
+    <main className={`relative min-h-screen ${isHero ? "bg-background" : ""}`}>
+      {!isHero && <ParallaxBackground />}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeSection}
