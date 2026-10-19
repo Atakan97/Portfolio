@@ -117,8 +117,8 @@ export default function Hero() {
           <AnimatedPill
             label="GitHub"
             icon={Github}
-            href="https://github.com/Atakan97/Portfolio"
-            aria-label="View the portfolio repository on GitHub (opens in a new tab)"
+            href="https://github.com/Atakan97"
+            aria-label="View Atakan's GitHub profile (opens in a new tab)"
           />
         </motion.div>
       </div>
